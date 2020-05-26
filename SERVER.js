@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 app.use(express.static("public"));
+
 app.set("view engine", "ejs");
 app.set("views","./views");
 var server = require("http").Server(app);
@@ -10,7 +11,24 @@ server.listen(3000);
 var UserArray = ["minh"];
 io.on("connection", function(socket){
   console.log( socket.id + "connect");
+  //chatroom
+  socket.on ("Create-Room",function(data){
+    socket.join(data);//join room mới
+    socket.roomname = data;
+    // console.log(socket.adapter.rooms);
+    var array =[]
+    for(r in socket.adapter.rooms){
+      array.push(r);
+      }
+      io.sockets.emit("Server-send-room", array);
+      //gửi tên phòng client đang ở
+      socket.emit("Server-send-room-name", data)
+  });
+  socket.on("user-chat",function(data){
+    io.sockets.in(socket.roomname).emit("server-chat",data)
+  });
 
+  //chat private
   socket.on("client-send-Username",function(data){
     if(UserArray.indexOf(data)>=0){
       //IndexOf tìm data từ phần tử đầu của mảng =0 nếu có =>fail
@@ -43,4 +61,7 @@ io.on("connection", function(socket){
 });
 app.get("/",function(req,res){
   res.render("trangchu");
+});
+app.get("/chatroom.ejs",function(req,res){
+  res.render("chatroom");
 });
