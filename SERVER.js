@@ -65,3 +65,7 @@ app.get("/",function(req,res){
 app.get("/chatroom.ejs",function(req,res){
   res.render("chatroom");
 });
+app.get("/videocall.ejs",function(req,res){
+    res.render("videocall");
+
+});
