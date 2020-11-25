@@ -8,16 +8,15 @@ var server = require("http").Server(app);
 var io = require("socket.io")(server);
 server.listen( process.env.PORT || 5000);
 
-var UserArray = ["minh"];
+var UserArray = [];
 io.on("connection", function(socket){
   console.log( socket.id + "connect");
   //chatroom
   socket.on ("Create-Room",function(data){
     socket.join(data);//join room mới
-    socket.rooms = data;
+    socket.roomname = data;
     // console.log(socket.adapter.rooms);
     var array =[]
-    console.log(array)
     for(r in socket.adapter.rooms){
       array.push(r);
       }
@@ -28,6 +27,7 @@ io.on("connection", function(socket){
   socket.on("user-chat",function(data){
     io.sockets.in(socket.roomname).emit("server-chat",data)
   });
+
 
   //chat private
   socket.on("client-send-Username",function(data){

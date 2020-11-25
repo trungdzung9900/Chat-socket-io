@@ -39,6 +39,11 @@ socket.on("sb-none-typing",function(data){
       $("#loginForm").show(1000);
       $("#chatForm").hide(2000);
     });
+    $(document).on('keypress',function(e) {
+      if(e.which == 13) {
+        socket.emit("user-send-message",$("#txtMessage").val());
+      }
+  });
     $("#btSendMessage").click(function(){
       socket.emit("user-send-message",$("#txtMessage").val());
     });
