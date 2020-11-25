@@ -6,7 +6,7 @@ app.set("view engine", "ejs");
 app.set("views","./views");
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-server.listen(3000);
+server.listen(5000);
 
 var UserArray = ["minh"];
 io.on("connection", function(socket){
@@ -14,9 +14,10 @@ io.on("connection", function(socket){
   //chatroom
   socket.on ("Create-Room",function(data){
     socket.join(data);//join room mới
-    socket.roomname = data;
+    socket.rooms = data;
     // console.log(socket.adapter.rooms);
     var array =[]
+    console.log(array)
     for(r in socket.adapter.rooms){
       array.push(r);
       }
@@ -67,5 +68,4 @@ app.get("/chatroom.ejs",function(req,res){
 });
 app.get("/videocall.ejs",function(req,res){
     res.render("videocall");
-
 });
