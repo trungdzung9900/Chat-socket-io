@@ -60,7 +60,7 @@ io.on("connection", function(socket){
     io.sockets.emit("sb-none-typing")
   });
 });
-app.get("/",function(req,res){
+app.get("/trangchu",function(req,res){
   res.render("trangchu");
 });
 app.get("/chatroom.ejs",function(req,res){
