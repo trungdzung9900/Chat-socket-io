@@ -9,7 +9,7 @@
       },
   
   "scripts": {
-    "start": "npm SERVER.js",
+    "start": "node SERVER.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
  
