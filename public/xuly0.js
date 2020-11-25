@@ -1,4 +1,4 @@
-var socket = io("http://localhost:3000");
+var socket = io("https://maca-chat-app.herokuapp.com/");
 socket.on("Server-send-room",function(data) {
   $("#list-room").html("");
   data.map(function(r){
