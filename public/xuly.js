@@ -41,7 +41,7 @@ socket.on("sb-none-typing",function(data){
     });
     $(document).on('keypress',function(e) {
       if(e.which == 13) {
-        socket.emit("user-send-message",$("#txtMessage").val());
+           socket.emit("user-send-message",$("#txtMessage").val());
       }
   });
     $("#btSendMessage").click(function(){
