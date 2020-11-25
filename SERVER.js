@@ -60,6 +60,14 @@ io.on("connection", function(socket){
     io.sockets.emit("sb-none-typing")
   });
 });
+io.on('disconnection', (socket) => {
+  console.log( socket.id + "disconnect");
+  UserArray.splice(
+    UserArray.indexOf(socket.Username),1
+  );
+  // send người dùng đã logout cho người còn lại
+  socket.broadcast.emit("Sever-send-username-all", UserArray)
+});
 app.get("/",function(req,res){
   res.render("trangchu");
 });
