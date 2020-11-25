@@ -6,7 +6,7 @@ app.set("view engine", "ejs");
 app.set("views","./views");
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-server.listen( 32231);
+server.listen( process.env.PORT || 5000);
 
 var UserArray = ["minh"];
 io.on("connection", function(socket){
