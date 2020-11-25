@@ -1,4 +1,4 @@
-var socket = io("http://localhost:3000");
+var socket = io("https://maca-chat-app.herokuapp.com/");
 socket.on("server-regist-fail",function(){
   alert("Username have registed")
 });
