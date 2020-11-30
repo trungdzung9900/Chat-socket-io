@@ -2,3 +2,53 @@ body{background-color: grey}
 #left{width: 20%; float: left; border:solid 1px pink}
 #right{width: 80%; float:right}
 #Room-now{background-color: black; width: 100px; float:right; color:white}
+body{
+    background-color: #d6cece;
+    }
+  #wrapper{
+    width: 600px
+    margin:auto;
+  }
+  #txtUsername{
+    background-color: transparent;
+    border:solid 1px black;
+  }
+  #left,#right {
+    min-height: 300px
+  }
+  #left{
+    width: 30%; float:left; background-color: blue;
+  }
+  #right{
+    width: 70%;float: right; background-color: pink;
+  
+  }
+  #boxTitle{
+    border:solid 1px black;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+  }
+  #boxContent{
+    border:solid 1px black;
+    border-top: none;
+    padding: 5px;
+    text-align: center;
+  }
+  #sayHi{
+    text-align: right;
+  }
+  #listMessages{
+    max-height:500px;
+    min-height:500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 500px;background-color: grey;
+    border: solid 1px black;
+    
+  }
+  #txtMessage{
+    border: solid 1px black;
+    background-color: transparent;
+  }
+  
