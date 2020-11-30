@@ -19,4 +19,4 @@ $(document).ready(function () {
     socket.emit("user-chat", $("#txtMessage").val());
   });
 });
-$('div#listMessages').scrollTop($('div#listMessages')[0].scrollHeight)
+
