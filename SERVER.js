@@ -86,7 +86,7 @@ app.get("/trangchu",function(req,res){
   res.render("trangchu.ejs");
 });
 app.get("/",function(req,res){s
-  res.render("trangchu.ejs");
+  res.render("LoginPage.ejs");
 });
 app.get("/chatroom.ejs",function(req,res){
   res.render("chatroom");
