@@ -37,6 +37,7 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
   // The signed-in user info.
   var user = result.user;
   console.log(user);
+  location.href = 'https://maca-chat-app.herokuapp.com/trangchu';
 })
 .catch(err =>{
     console.log(err);
@@ -65,6 +66,7 @@ function signInWithGoogle() {
 
             document.getElementById('google-display-name').innerHTML = name
             document.getElementById('google-pic').setAttribute('src', String(photoURL))
+            location.href = 'https://maca-chat-app.herokuapp.com/trangchu';
 
         })
         .catch(err => {
