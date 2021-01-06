@@ -1,24 +1,24 @@
-function checkifLoggedIn() {
-    firebase.auth().onAuthStateChanged((user => {
-        if (user) {
-            console.log(user);
-            var photoURL = user.photoURL
-            var name = user.displayName
-            document.getElementById('google-display-name').innerHTML = name
-            document.getElementById('google-pic').setAttribute('src', String(photoURL))
-        }
-        else {
-            console.log("user not logged in");
-        }
-    })
-    )
+// function checkifLoggedIn() {
+//     firebase.auth().onAuthStateChanged((user => {
+//         if (user) {
+//             console.log(user);
+//             var photoURL = user.photoURL
+//             var name = user.displayName
+//             document.getElementById('google-display-name').innerHTML = name
+//             document.getElementById('google-pic').setAttribute('src', String(photoURL))
+//         }
+//         else {
+//             console.log("user not logged in");
+//         }
+//     })
+//     )
 
 
 
-}
-window.onload = () => {
-    checkifLoggedIn()
-}
+// }
+// window.onload = () => {
+//     checkifLoggedIn()
+// }
 // checkifLoggedIn()
 function singOutGoogle() {
     firebase.auth().signOut()
