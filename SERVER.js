@@ -85,7 +85,7 @@ io.on("connection", function(socket){
 app.get("/trangchu",function(req,res){
   res.render("trangchu.ejs");
 });
-app.get("/",function(req,res){s
+app.get("/",function(req,res){
   res.render("LoginPage.ejs");
 });
 app.get("/chatroom.ejs",function(req,res){
