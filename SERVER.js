@@ -1,12 +1,26 @@
 var express = require("express");
+const logger = require ('morgan')
+const bodyParser =  require('body-parser')
+const admin = require('firebase-admin')
+var serviceAccount = require("./fir-demo-3ad41-firebase-adminsdk-l41uu-2adb8b1cd0.json");
 var app = express();
 app.use(express.static("public"));
-
 app.set("view engine", "ejs");
 app.set("views","./views");
+app.set('views',__dirname+'/views')
+app.use(logger('dev'))
+const port = 5000
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-server.listen( process.env.PORT || 5000);
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:false}))
+server.listen( process.env.PORT || port);
+// var database = firebaseAdmin.database()
+console.log(`Example app listening at http://localhost:${port}`)
+var firebaseAdmin =admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://fir-demo-3ad41-default-rtdb.firebaseio.com"
+});
 
 var UserArray = [];
 io.on("connection", function(socket){
@@ -68,8 +82,11 @@ io.on("connection", function(socket){
   });
 });
 
+app.get("/trangchu",function(req,res){
+  res.render("trangchu.ejs");
+});
 app.get("/",function(req,res){
-  res.render("trangchu");
+  res.render("LoginPage.ejs");
 });
 app.get("/chatroom.ejs",function(req,res){
   res.render("chatroom");

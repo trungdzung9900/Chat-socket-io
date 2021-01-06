@@ -36,8 +36,7 @@ $(document).ready(function () {
   });
   $("#btnLogout").click(function () {
     socket.emit("logout");
-    $("#loginForm").show(1000);
-    $("#chatForm").hide(2000);
+    location.href = 'https://maca-chat-app.herokuapp.com/';
   });
   $(document).on('keypress', function (e) {
     if (e.which == 13) {
