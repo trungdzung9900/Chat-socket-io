@@ -22,6 +22,7 @@ var firebaseAdmin =admin.initializeApp({
   databaseURL: "https://fir-demo-3ad41-default-rtdb.firebaseio.com"
 });
 
+
 var UserArray = [];
 io.on("connection", function(socket){
   console.log( socket.id + "connect");
